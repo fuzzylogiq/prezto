@@ -24,7 +24,7 @@ if [[ $SYSTYPE == "Darwin" ]]; then
 #  eval `gdircolors $HOME/.dir_colors/dircolors.256dark`
 #  alias ls="gls --color"
 #  alias ll="gls --color -l"
-  export VIMRUNTIME="$HOME/Developer/homebrew/Cellar/vim/7.4.488/share/vim/vim74"
+  export VIMRUNTIME="$HOME/Developer/homebrew/Cellar/vim/*/share/vim/vim74"
   function vpn-connect {
     /usr/bin/env osascript <<-EOF
     tell application "System Events"
