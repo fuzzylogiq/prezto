@@ -21,7 +21,7 @@ alias cdrep="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-
 alias cdapkg="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
 
 if [[ $SYSTYPE == "Darwin" ]]; then
-  eval `gdircolors $HOME/.dir_colors/dircolors.256dark` 2>&1 /dev/null
+  eval `gdircolors $HOME/.dir_colors/dircolors.256dark 2>&1 /dev/null`
 #  alias ls="gls --color"
 #  alias ll="gls --color -l"
   export VIMRUNTIME="$HOME/Developer/homebrew/Cellar/vim/7.4.488/share/vim/vim74"
