@@ -57,6 +57,9 @@ alias vs="vi $HOME/.ssh/config"
 alias vv="vi $HOME/.vimrc"
 alias vz="vi $HOME/.zshrc"
 alias cdpup="cd $HOME/Developer/svn/nsms/config/puppet"
+if [[ -f ~/.sshconfig]]; then
+  alias ssh="~/.sshconfig && ssh"
+fi
 
 # zstyle completion options
 zstyle ':completion:*' verbose yes
