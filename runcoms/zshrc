@@ -14,6 +14,13 @@ fi
 
 SYSTYPE=$(uname)
 
+if $(hash git 2>/dev/null); then
+  if [ -d ~/.zprezto ]; then
+    echo "Updating your zsh config..."
+    cd ~/.zprezto && git pull
+  fi
+fi
+
 PATH="$HOME/Developer/homebrew/bin:$PATH"
 alias cdmmp="cd $HOME/Developer/svn/nsms/src/n/nsms-mmp-scripts/trunk/"
 alias cdvip="cd $HOME/Developer/svn/nsms/config/network/vip-firewalls"
