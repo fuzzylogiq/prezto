@@ -77,3 +77,4 @@ zstyle ':completion:*' group-name ''
 
 setopt nobeep
 alias sua="sudo -u autopkg"
+alias pg="ping www.google.co.uk"
