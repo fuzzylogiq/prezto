@@ -7,5 +7,5 @@
 
 # Print the message.
 cat <<-EOF
-Au reservoir!
+~~~ Au reservoir!
 EOF
