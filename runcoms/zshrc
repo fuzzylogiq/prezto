@@ -14,16 +14,18 @@ fi
 
 SYSTYPE=$(uname)
 
-PATH="$HOME/Developer/homebrew/bin:$PATH"
 alias cdmmp="cd $HOME/Developer/svn/nsms/src/n/nsms-mmp-scripts/trunk/"
 alias cdvip="cd $HOME/Developer/svn/nsms/config/network/vip-firewalls"
 alias cdrep="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
 alias cdapkg="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
 
 if [[ $SYSTYPE == "Darwin" ]]; then
-#  eval `gdircolors $HOME/.dir_colors/dircolors.256dark`
-#  alias ls="gls --color"
-#  alias ll="gls --color -l"
+
+  
+  PATH="$HOME/Developer/homebrew/bin:$PATH"
+  #eval `gdircolors $HOME/.dir_colors/dircolors.256dark`
+  #alias ls="gls --color"
+  #alias ll="gls --color -l"
   export VIMRUNTIME="$HOME/Developer/homebrew/Cellar/vim/*/share/vim/vim74"
   function vpn-connect {
     /usr/bin/env osascript <<-EOF
