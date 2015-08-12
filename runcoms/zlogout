@@ -9,7 +9,7 @@
 [[ -o INTERACTIVE && -t 2 ]] && {
 # Print the message.
 cat <<-EOF
-Au reservoir!
+~~~ Au reservoir!
 EOF
 
 
