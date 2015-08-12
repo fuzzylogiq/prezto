@@ -17,7 +17,7 @@ SYSTYPE=$(uname)
 if $(hash git 2>/dev/null); then
   if [ -d ~/.zprezto ]; then
     echo "Updating your zsh config..."
-    cd ~/.zprezto && git pull
+    git -C ~/.zprezto pull 
   fi
 fi
 
