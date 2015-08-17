@@ -14,10 +14,6 @@ fi
 
 SYSTYPE=$(uname)
 
-alias cdmmp="cd $HOME/Developer/svn/nsms/src/n/nsms-mmp-scripts/trunk/"
-alias cdvip="cd $HOME/Developer/svn/nsms/config/network/vip-firewalls"
-alias cdrep="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
-alias cdapkg="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
 
 if [[ $SYSTYPE == "Darwin" ]]; then
 
@@ -54,11 +50,18 @@ EOF
   }
 fi
 
-alias cdsvn="cd $HOME/Developer/svn/nsms"
 alias vs="vi $HOME/.ssh/config"
 alias vv="vi $HOME/.vimrc"
 alias vz="vi $HOME/.zshrc"
 alias cdpup="cd $HOME/Developer/svn/nsms/config/puppet"
+alias cdsvn="cd $HOME/Developer/svn/nsms"
+alias cdmmp="cd $HOME/Developer/svn/nsms/src/n/nsms-mmp-scripts/trunk/"
+alias cdvip="cd $HOME/Developer/svn/nsms/config/network/vip-firewalls"
+alias cdrep="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
+alias cdapkg="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
+alias sua="sudo -u autopkg"
+alias pg="ping www.google.co.uk"
+alias history="history 1"
 if [ -f ~/.sshconfig ]; then
   alias ssh="~/.sshconfig && ssh"
 fi
@@ -71,6 +74,3 @@ zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*' group-name ''
 
 setopt nobeep
-alias sua="sudo -u autopkg"
-alias pg="ping www.google.co.uk"
-alias history="history 1"
