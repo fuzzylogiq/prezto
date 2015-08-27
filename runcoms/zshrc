@@ -16,12 +16,11 @@ SYSTYPE=$(uname)
 
 
 if [[ $SYSTYPE == "Darwin" ]]; then
-
-  
   PATH="$HOME/Developer/homebrew/bin:$PATH"
   #eval `gdircolors $HOME/.dir_colors/dircolors.256dark`
   #alias ls="gls --color"
   #alias ll="gls --color -l"
+  alias plx='plutil -convert xml1 -o -'
   export VIMRUNTIME="$HOME/Developer/homebrew/Cellar/vim/*/share/vim/vim74"
   function vpn-connect {
     /usr/bin/env osascript <<-EOF
