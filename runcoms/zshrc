@@ -48,6 +48,14 @@ EOF
     return
 EOF
   }
+
+  function autoaamporter(){
+     # Automatically builds a command line of plists to provide
+     # to aamporter.py
+     ls /srv/munki/aamporter/Adobe* | sed 's/^/-p /' | \
+        xargs -J % /srv/munki/aamporter/aamporter.py \
+        --munkiimport % --make-catalogs
+  }
 fi
 
 alias vs="vi $HOME/.ssh/config"
