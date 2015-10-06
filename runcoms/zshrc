@@ -21,7 +21,7 @@ if [[ $SYSTYPE == "Darwin" ]]; then
   #alias ls="gls --color"
   #alias ll="gls --color -l"
   alias plx='plutil -convert xml1 -o -'
-  vimversion=$(ls $HOME/Developer/homebrew/Cellar/vim)
+  vimversion=$(ls -r $HOME/Developer/homebrew/Cellar/vim | head -n 1)
   export VIMRUNTIME="$HOME/Developer/homebrew/Cellar/vim/${vimversion}/share/vim/vim74"
   function vpn-connect {
     /usr/bin/env osascript <<-EOF
