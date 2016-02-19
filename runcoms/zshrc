@@ -23,6 +23,8 @@ if [[ $SYSTYPE == "Darwin" ]]; then
   alias plx='plutil -convert xml1 -o -'
   vimversion=$(ls -r $HOME/Developer/homebrew/Cellar/vim | head -n 1)
   export VIMRUNTIME="$HOME/Developer/homebrew/Cellar/vim/${vimversion}/share/vim/vim74"
+  [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
   function vpn-connect {
     /usr/bin/env osascript <<-EOF
     tell application "System Events"
@@ -82,3 +84,5 @@ zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*' group-name ''
 
 setopt nobeep
+
+test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
