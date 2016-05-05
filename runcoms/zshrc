@@ -12,11 +12,12 @@ fi
 
 # Customize to your needs...
 
+# system specific stuff
 SYSTYPE=$(uname)
 
-
+# mac os x specific stuff
 if [[ $SYSTYPE == "Darwin" ]]; then
-  PATH="$HOME/Developer/homebrew/bin:$PATH"
+  PATH="$HOME/Developer/homebrew/bin:$HOME/bin:$PATH"
   #eval `gdircolors $HOME/.dir_colors/dircolors.256dark`
   #alias ls="gls --color"
   #alias ll="gls --color -l"
@@ -24,32 +25,6 @@ if [[ $SYSTYPE == "Darwin" ]]; then
   vimversion=$(ls -r $HOME/Developer/homebrew/Cellar/vim | head -n 1)
   export VIMRUNTIME="$HOME/Developer/homebrew/Cellar/vim/${vimversion}/share/vim/vim74"
   [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
-  function vpn-connect {
-    /usr/bin/env osascript <<-EOF
-    tell application "System Events"
-            tell current location of network preferences
-                    set VPN to service "Oxford VPN"
-                    if exists VPN then connect VPN
-                    repeat while (current configuration of VPN is not connected)
-                        delay 1
-                    end repeat
-            end tell
-    end tell
-EOF
-  }
-
-  function vpn-disconnect {
-    /usr/bin/env osascript <<-EOF
-    tell application "System Events"
-            tell current location of network preferences
-                    set VPN to service "Oxford VPN"
-                    if exists VPN then disconnect VPN
-            end tell
-    end tell
-    return
-EOF
-  }
 
   function autoaamporter(){
      # Automatically builds a command line of plists to provide
@@ -60,6 +35,12 @@ EOF
   }
 fi
 
+# vi editing mode
+bindkey -v
+
+# aliases
+alias ss="ssh stelmaria"
+alias sa="ssh adanac"
 alias vs="vi $HOME/.ssh/config"
 alias vv="vi $HOME/.vimrc"
 alias vz="vi $HOME/.zshrc"
