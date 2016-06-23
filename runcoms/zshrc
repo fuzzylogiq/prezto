@@ -21,6 +21,7 @@ SYSTYPE=$(uname)
 
 # mac os x specific stuff
 if [[ $SYSTYPE == "Darwin" ]]; then
+  # Homebrew specific
   if [ -d "$HOME/Developer/homebrew/bin" ]; then
     PATH="$HOME/Developer/homebrew/bin:$HOME/bin:$PATH"
     vimversion=$(ls -r $HOME/Developer/homebrew/Cellar/vim | head -n 1)
@@ -28,12 +29,16 @@ if [[ $SYSTYPE == "Darwin" ]]; then
     [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
   fi
   
+  # Subversion
   svn="$HOME/Developer/svn"
+
+  # Aliases
   alias plx='plutil -convert xml1 -o -'
-  
   alias cdrep="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
-  alias cdapkg="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
-  
+  alias cdapkg="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes" 
+  alias sysver=defaults\ read\ /System/Library/CoreServices/SystemVersion.plist\ ProductVersion\ \&\&\ defaults\ read\ /System/Library/CoreServices/SystemVersion.plist\ ProductBuildVersion
+
+  # Functions
   function autoaamporter(){
      # Automatically builds a command line of plists to provide
      # to aamporter.py
@@ -44,28 +49,36 @@ if [[ $SYSTYPE == "Darwin" ]]; then
 fi
 
 if [[ $SYSTYPE == "Linux" ]]; then
-  :
+  # Subversion
+  svn="$HOME/svn" 
 fi
 
 # vi editing mode
 bindkey -v
 
 # aliases
-alias ss="ssh stelmaria"
-alias sa="ssh adanac"
-alias vs="vi $HOME/.ssh/config"
-alias vv="vi $HOME/.vimrc"
-alias vz="vi $HOME/.zshrc"
-
-alias vimnt="vim --cmd \"let g:templates_no_autocmd=1\""
-alias cdrep="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
-alias cdapkg="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
-alias sua="sudo -u autopkg"
-alias pg="ping www.google.co.uk"
-alias history="history 1"
+# SSH
 if [ -f ~/.sshconfig ]; then
   alias ssh="~/.sshconfig && ssh"
 fi
+alias ss="ssh stelmaria"
+alias sa="ssh adanac"
+
+# Vim
+alias vs="vi $HOME/.ssh/config"
+alias vv="vi $HOME/.vimrc"
+alias vz="vi $HOME/.zshrc"
+alias vimnt="vim --cmd \"let g:templates_no_autocmd=1\""
+
+# Autopkg
+alias cdrep="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
+alias cdapkg="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
+alias sua="sudo -u autopkg"
+
+
+alias pg="ping www.google.co.uk"
+alias history="history 1"
+
 
 if [ -n "$svn" ]; then
   alias cdpup="cd $svn/nsms/config/puppet"
@@ -73,8 +86,8 @@ if [ -n "$svn" ]; then
   alias cdmmp="cd $svn/nsms/src/n/nsms-mmp-scripts/trunk/"
   alias cdvip="cd $svn/nsms/config/network/vip-firewalls"
 fi
-# functions
 
+# functions
 hex() {
   python -c "print hex($1)"
 }
@@ -91,4 +104,3 @@ setopt nobeep
 # iTerm shell integration
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 alias vnt='vim --cmd "let g:templates_no_autocmd=1"'
-alias sysver=defaults\ read\ /System/Library/CoreServices/SystemVersion.plist\ ProductVersion\ \&\&\ defaults\ read\ /System/Library/CoreServices/SystemVersion.plist\ ProductBuildVersion
