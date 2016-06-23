@@ -11,6 +11,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+if [[ -d ".vim/bundle/vim-manpager" ]]; then
+ export MANPAGER='zsh -c "vim -MRn -c \"set ft=man nomod nolist nospell nonu\" \
+   -c \"nm q :qa!<CR>\" -c \"nm <end> G\" -c \"nm <home> gg\"</dev/tty <(col -b)"' 
+fi
 
 # system specific stuff
 SYSTYPE=$(uname)
@@ -53,6 +57,9 @@ alias vs="vi $HOME/.ssh/config"
 alias vv="vi $HOME/.vimrc"
 alias vz="vi $HOME/.zshrc"
 
+alias vimnt="vim --cmd \"let g:templates_no_autocmd=1\""
+alias cdrep="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
+alias cdapkg="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
 alias sua="sudo -u autopkg"
 alias pg="ping www.google.co.uk"
 alias history="history 1"
@@ -66,6 +73,11 @@ if [ -n "$svn" ]; then
   alias cdmmp="cd $svn/nsms/src/n/nsms-mmp-scripts/trunk/"
   alias cdvip="cd $svn/nsms/config/network/vip-firewalls"
 fi
+# functions
+
+hex() {
+  python -c "print hex($1)"
+}
 
 # zstyle completion options
 zstyle ':completion:*' verbose yes
@@ -78,3 +90,5 @@ setopt nobeep
 
 # iTerm shell integration
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+alias vnt='vim --cmd "let g:templates_no_autocmd=1"'
+alias sysver=defaults\ read\ /System/Library/CoreServices/SystemVersion.plist\ ProductVersion\ \&\&\ defaults\ read\ /System/Library/CoreServices/SystemVersion.plist\ ProductBuildVersion
