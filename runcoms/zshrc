@@ -36,7 +36,6 @@ if [[ $SYSTYPE == "Darwin" ]]; then
   alias plx='plutil -convert xml1 -o -'
   alias cdrep="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
   alias cdapkg="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes" 
-  alias sysver=defaults\ read\ /System/Library/CoreServices/SystemVersion.plist\ ProductVersion\ \&\&\ defaults\ read\ /System/Library/CoreServices/SystemVersion.plist\ ProductBuildVersion
 
   # Functions
   function autoaamporter(){
