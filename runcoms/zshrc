@@ -86,6 +86,8 @@ if [ -n "$svn" ]; then
   alias cdvip="cd $svn/nsms/config/network/vip-firewalls"
 fi
 
+alias udid="system_profiler SPHardwareDataType | awk '/Hardware UUID:/ {print \$3}'"
+
 # functions
 hex() {
   python -c "print hex($1)"
