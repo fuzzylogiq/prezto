@@ -108,3 +108,4 @@ alias vnt='vim --cmd "let g:templates_no_autocmd=1"'
 
 # Perlbrew
 #source ~/perl5/perlbrew/etc/bashrc
+alias config='/usr/bin/git --git-dir=/Users/ouit0354/.cfg/ --work-tree=/Users/ouit0354'
