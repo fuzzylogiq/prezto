@@ -14,6 +14,15 @@
   fi
 } &!
 
+# Execute code only if STDERR is bound to a TTY.
+[[ -o INTERACTIVE && -t 2 ]] && {
+
+  # Print a random, hopefully interesting, adage.
+  if (( $+commands[fortune] )); then
+    fortune -s
+  fi
+
+
 # Update zprezto
 if (( $+commands[git] )); then
   if [ -d ~/.zprezto ]; then
@@ -21,4 +30,6 @@ if (( $+commands[git] )); then
     cd ~/.zprezto && git pull; cd ~- 
   fi
 fi
+
+} >&2
 
