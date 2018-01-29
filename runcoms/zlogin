@@ -20,6 +20,9 @@
   # Print a random, hopefully interesting, adage.
   if (( $+commands[fortune] )); then
     fortune -s
+  fi
+
+
 # Update zprezto
 if (( $+commands[git] )); then
   if [ -d ~/.zprezto ]; then
@@ -27,13 +30,4 @@ if (( $+commands[git] )); then
     cd ~/.zprezto && git pull; cd ~- 
   fi
 fi
-
-
-# Print a random, hopefully interesting, adage.
-if (( $+commands[fortune] )); then
-  if [[ -t 0 || -t 1 ]]; then
-    fortune -s -n 400 "${ZDOTDIR:-$HOME}/nietzsche/fortune"
-    print
-  fi
-
 } >&2
