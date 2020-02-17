@@ -30,6 +30,5 @@ if (( $+commands[git] )); then
     cd ~/.zprezto && git pull; cd ~- 
   fi
 fi
-
 } >&2
 

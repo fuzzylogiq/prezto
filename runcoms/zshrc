@@ -24,8 +24,8 @@ if [[ $SYSTYPE == "Darwin" ]]; then
   # Homebrew specific
   if [ -d "$HOME/Developer/homebrew/bin" ]; then
     PATH="$HOME/Developer/homebrew/bin:$HOME/bin:$PATH"
-    vimversion=$(ls -r /usr/local/share/vim | head -n 1)
-    export VIMRUNTIME="/usr/local/share/vim/vim81"
+    vimversion=$(ls -r $HOME/Developer/homebrew/Cellar/vim | head -n 1)
+    export VIMRUNTIME="$HOME/Developer/homebrew/Cellar/vim/${vimversion}/share/vim/vim80"
     [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
   fi
   
