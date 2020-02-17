@@ -24,8 +24,8 @@ if [[ $SYSTYPE == "Darwin" ]]; then
   # Homebrew specific
   if [ -d "$HOME/Developer/homebrew/bin" ]; then
     PATH="$HOME/Developer/homebrew/bin:$HOME/bin:$PATH"
-    vimversion=$(ls -r $HOME/Developer/homebrew/Cellar/vim | head -n 1)
-    export VIMRUNTIME="$HOME/Developer/homebrew/Cellar/vim/${vimversion}/share/vim/vim80"
+    vimversion=$(ls -r /usr/local/share/vim | head -n 1)
+    export VIMRUNTIME="/usr/local/share/vim/vim81"
     [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
   fi
   
@@ -37,6 +37,7 @@ if [[ $SYSTYPE == "Darwin" ]]; then
   alias cdrep="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes"
   alias cdapkg="cd $HOME/Library/AutoPkg/RecipeRepos/com.github.fuzzylogiq.autopkg-recipes" 
   alias udid="system_profiler SPHardwareDataType | awk '/Hardware UUID:/ {print \$3}'"
+  alias ip='ifconfig en0 | awk '\''/inet/ { print $2 }'\'''
 
   # Functions
   function autoaamporter(){
@@ -54,6 +55,11 @@ if [[ $SYSTYPE == "Darwin" ]]; then
     fi
 	curl -H "Authorization: Basic b3JjaGFyZDpMKjQpWEd6RHRiRWo1NTJZ" https://munki.orchard.ox.ac.uk/production/manifests/${udid}
 }
+
+  function xpkg () {
+    pkgutil --expand ${1} ${1%.*}
+  }
+
 fi
 
 if [[ $SYSTYPE == "Linux" ]]; then
@@ -93,6 +99,7 @@ if [ -n "$svn" ]; then
   alias cdsvn="cd $svn/nsms"
   alias cdmmp="cd $svn/nsms/src/n/nsms-mmp-scripts/trunk/"
   alias cdvip="cd $svn/nsms/config/network/vip-firewalls"
+  alias cdans="cd $svn/nsms/scratch/ben/ansible/orchard_infrastructure"
 fi
 
 
